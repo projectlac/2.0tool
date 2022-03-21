@@ -14,11 +14,13 @@ function MainBox() {
     <div>
       <input type="text" onChange={handleChangeInput} />
       <div className="MainPicker">
-        {convertData().map((shiki) => (
-          <div className="col-md-1-custom">
-            <img src={`/images/${shiki.img}`} alt={shiki.name} />
-          </div>
-        ))}
+        <div className="MainPicker-box">
+          {convertData().map((shiki) => (
+            <div className="col-md-1-custom">
+              <img src={`/images/${shiki.img}`} alt={shiki.name} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

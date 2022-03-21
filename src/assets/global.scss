@@ -228,9 +228,24 @@
   height: 620px;
   overflow: hidden;
   overflow-y: auto;
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
+
+  &-box {
+    display: flex;
+
+    flex: 1;
+    flex-wrap: wrap;
+    .col-md-1-custom {
+      width: calc(100% / 11 - 12px);
+      height: 90px;
+      margin: 5px 5px;
+      border: 1px solid #d7bf79;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -248,14 +263,5 @@
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
     background: #a18e54;
-  }
-  .col-md-1-custom {
-    width: calc(100% / 11 - 12px);
-    margin: 5px 5px;
-    border: 1px solid #d7bf79;
-    img {
-      width: 100%;
-      height: 100%;
-    }
   }
 }
