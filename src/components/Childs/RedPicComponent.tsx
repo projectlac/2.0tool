@@ -20,9 +20,9 @@ function RedPicComponent() {
         <div className="RedOption-item">
           <img src="/images/Demoniac Shuten Doji.png" alt="" />
         </div>
-        <div className="RedOption-onmy">
+        {/* <div className="RedOption-onmy">
           <img src="/images/Seimei.png" alt="" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

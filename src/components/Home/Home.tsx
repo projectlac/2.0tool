@@ -1,15 +1,61 @@
-import React from "react";
-import BanComponent from "../Childs/BanComponent";
-import BluePicComponent from "../Childs/BluePicComponent";
-import MainBox from "../Childs/MainBox";
-import RedPicComponent from "../Childs/RedPicComponent";
+import React, { useCallback, useEffect, useState } from 'react';
+import { Ban, Item } from 'src/models/item';
+import BanComponent from '../Childs/BanComponent';
+import BluePicComponent from '../Childs/BluePicComponent';
+import MainBox from '../Childs/MainBox';
+import RedPicComponent from '../Childs/RedPicComponent';
 
+enum CONSTANT {
+  BAN = 4,
+  PICK = 14
+}
 export default function Home() {
+  const [mode, setMode] = useState<string>('BAN');
+  const [turn, setTurn] = useState<number>(0);
+
+  const [banList, setBanlist] = useState<Ban>({
+    banBlue1: -1,
+    banBlue2: -1,
+    banRed1: -1,
+    banRed2: -1
+  });
+
+  const actionBan = (id: number) => {
+    switch (turn) {
+      case 0:
+        setBanlist({ ...banList, banBlue1: id });
+        break;
+      case 1:
+        setBanlist({ ...banList, banRed1: id });
+        break;
+      case 2:
+        setBanlist({ ...banList, banBlue2: id });
+        break;
+      case 3:
+        setBanlist({ ...banList, banRed2: id });
+        break;
+    }
+    setTurn((prev) => prev + 1);
+  };
+
+  const switchMode = useCallback(() => {
+    if (turn < CONSTANT.BAN) {
+      setMode('BAN');
+    } else if (turn < CONSTANT.PICK) {
+      setMode('PICK');
+    } else {
+      setMode('ONMY');
+    }
+  }, [turn]);
+  useEffect(() => {
+    switchMode();
+  }, [turn, switchMode]);
+
   return (
     <div className="Main">
       <div className="container">
         <div className="BanArea">
-          <BanComponent />
+          <BanComponent banList={banList} />
         </div>
         <div className="BlueArea">
           <BluePicComponent />
@@ -18,7 +64,7 @@ export default function Home() {
           <RedPicComponent />
         </div>
         <div className="MainArea">
-          <MainBox />
+          <MainBox actionBan={actionBan} mode={mode} />
         </div>
       </div>
     </div>

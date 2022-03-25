@@ -19,9 +19,9 @@ function BluePicComponent() {
         <div className="BlueOption-item">
           <img src="/images/Demoniac Shuten Doji.png" alt="" />
         </div>
-        <div className="BlueOption-onmy">
+        {/* <div className="BlueOption-onmy">
           <img src="/images/Seimei.png" alt="" />
-        </div>
+        </div> */}
       </div>
       <div className="BlueEmpty"></div>
     </div>

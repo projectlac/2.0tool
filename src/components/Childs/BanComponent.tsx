@@ -1,8 +1,14 @@
 import React from 'react';
+import { Ban, Item } from 'src/models/item';
 import BlueBan from './BlueBan';
 import RedBan from './RedBan';
 
-function BanComponent() {
+interface PropsBan {
+  banList: Ban;
+}
+function BanComponent({ banList }: PropsBan) {
+  const { banBlue1, banBlue2, banRed1, banRed2 } = banList;
+
   return (
     <div className="BanContainer">
       <div className="divBlueBan">
@@ -14,9 +20,9 @@ function BanComponent() {
         <p>Đội đỏ</p> <img src="/images/Repeat Grid 1.png" alt="" />
       </div>
       <div className="BanBox">
-        <BlueBan />
+        <BlueBan banBlue1={banBlue1} banBlue2={banBlue2} />
         <p>Bans</p>
-        <RedBan />
+        <RedBan banRed1={banRed1} banRed2={banRed2} />
       </div>
     </div>
   );
