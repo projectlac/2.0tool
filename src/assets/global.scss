@@ -31,8 +31,9 @@
   }
   .MainArea {
     grid-area: MainArea;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    // display: flex;
+    // flex-direction: column;
     // background-color: rgb(255, 255, 255);
   }
 }
@@ -123,7 +124,14 @@
       margin-left: 15px;
       width: 65px;
       height: 65px;
+
       border: 2px solid #d7bf79;
+      &:first-child {
+        background-image: url(./b1.png);
+      }
+      &:last-child {
+        background-image: url(./b2.png);
+      }
       img {
         width: 100%;
         height: 100%;
@@ -139,6 +147,12 @@
       width: 65px;
       height: 65px;
       border: 2px solid #d7bf79;
+      &:first-child {
+        background-image: url(./r1.png);
+      }
+      &:last-child {
+        background-image: url(./r2.png);
+      }
       img {
         width: 100%;
         height: 100%;
@@ -240,61 +254,126 @@
 
 //Respon
 .MainPicker {
-  width: calc(100% - 100px);
-  background-color: #fffdf1;
-  border: 3px solid #d7bf79;
+  width: calc(100% - 500px);
+  // background-color: #fffdf1;
+  background-image: url('./midBox.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  // border: 3px solid #d7bf79;
   padding: 15px;
   margin: 100px auto 0;
-  height: calc(100% - 350px);
-  overflow: hidden;
-  overflow-y: auto;
+  height: 86%;
 
-  &-box {
+  position: relative;
+
+  &-action {
+    margin-bottom: 50px;
+    width: 100%;
     display: flex;
-
-    flex: 1;
-    flex-wrap: wrap;
-    .col-md-1-custom {
-      width: calc(100% / 11 - 12px);
-      height: 90px;
-      margin: 5px 5px;
-      border: 1px solid #d7bf79;
-      transition: all 0.1s linear;
-      &.choose {
-        border-radius: 50%;
-        border-color: #4d5553;
-        overflow: hidden;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    justify-content: center;
+    position: relative;
+    input {
+      border: 2px solid #4f796b;
+      height: 29px;
+      width: 204px;
+      outline: navajowhite;
+      padding: 2px 5px;
+    }
+    button {
+      position: absolute;
+      right: 18px;
+      width: 37px;
+      height: 37px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #4089ac;
+      background: #647290;
+      color: #fff;
+      transform: rotate(45deg);
+      > svg {
+        transform: rotate(-45deg);
       }
     }
   }
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
+  &-box {
+    display: flex;
+    flex: 1 1;
+    flex-wrap: wrap;
+    width: calc(100% - 370px);
+    height: 460px;
 
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
+    margin: 0 auto;
+    position: absolute;
+    bottom: 110px;
+    right: 0;
+    left: 0;
+    z-index: 9;
 
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: #e6d39d;
-  }
+    &-item {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-right: 25px;
+      overflow: hidden;
+      height: 400px;
+      overflow-y: auto;
+      .col-md-1-custom {
+        width: calc(100% / 5 - 11px);
+        height: 70px;
+        margin: 7px 4px;
+        border: 2px solid #d7bf79;
+        transition: all 0.1s linear;
+        &:nth-child(5n + 1) {
+          margin-left: 0;
+        }
+        &:nth-child(5n) {
+          margin-right: 0;
+        }
+        &.choose {
+          border-color: #4d5553;
+          overflow: hidden;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &::-webkit-scrollbar {
+        width: 5px;
+        display: none;
+      }
 
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: #a18e54;
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        display: none;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #e6d39d;
+        display: none;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #a18e54;
+        display: none;
+      }
+    }
   }
 }
 .Onmyoji-box {
   height: 350px;
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+
   img:first-child {
     transform: rotateY(180deg);
   }
