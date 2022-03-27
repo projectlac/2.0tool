@@ -34,6 +34,10 @@ export default function Home() {
     pickSlot4: -1,
     pickSlot5: -1
   });
+
+  const turnAddOne = () => {
+    setTurn((prev) => prev + 1);
+  };
   const actionBan = (id: number) => {
     switch (turn) {
       case 0:
@@ -96,6 +100,8 @@ export default function Home() {
             actionBan={actionBan}
             actionPick={actionPick}
             mode={mode}
+            turnAddOne={turnAddOne}
+            turn={turn}
             banList={banList}
           />
         </div>

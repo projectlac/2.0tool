@@ -20,3 +20,7 @@ export interface Pick{
   pickSlot4:number,
   pickSlot5:number,
 }
+export interface ChooseOnmy{
+  blue:number;
+  red:number
+}
