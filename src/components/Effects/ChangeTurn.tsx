@@ -39,7 +39,7 @@ function ChangeTurn({ turn }: TurnProps) {
         somethingChange ? 'active' : ''
       } ${handleColor()}`}
     >
-      {handleTurn()}
+      {turn < 16 && handleTurn()}
     </div>
   );
 }

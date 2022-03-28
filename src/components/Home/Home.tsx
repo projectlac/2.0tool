@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Ban, Item, Pick } from 'src/models/item';
+import { Ban, Pick } from 'src/models/item';
 import BanComponent from '../Childs/BanComponent';
 import BluePicComponent from '../Childs/BluePicComponent';
 import MainBox from '../Childs/MainBox';
 import RedPicComponent from '../Childs/RedPicComponent';
 import ChangeTurn from '../Effects/ChangeTurn';
+import CloseDoor from '../Effects/CloseDoor';
 
 enum CONSTANT {
   BAN = 4,
@@ -85,6 +86,7 @@ export default function Home() {
   return (
     <div className="Main">
       <ChangeTurn turn={turn} />
+      <CloseDoor turn={turn} />
       <div className="container">
         <div className="BanArea">
           <BanComponent banList={banList} />
