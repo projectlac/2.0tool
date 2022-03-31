@@ -36,7 +36,61 @@ function CloseDoor({ turn }: TurnProps) {
             className={`${ani ? 'ani' : ''}`}
           />
           <div className={`logo ${ani ? 'ani' : ''}`}>
-            <img src="/images/logo.png" alt="" />
+            <div className="mid-image">
+              <div className="left-cloudRed"></div>
+              <div className="left-cloud"></div>
+              <div className="blueTeam">
+                <div className="blueOnmyTeam">
+                  <img src="/images/mainOnmy.png" alt="" />
+                </div>
+                <div className="blueShikiTeam">
+                  <div className="item-blueShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-blueShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-blueShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-blueShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-blueShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <img src="/images/title.png" alt="" className="img-title" />
+              <div className="moon">
+                <img src="/images/harf_mood.png" alt="" />
+                <img src="/images/harf_mood.png" alt="" />
+              </div>
+              <div className="redTeam">
+                <div className="redOnmyTeam">
+                  <img src="/images/mainOnmy.png" alt="" />
+                </div>
+                <div className="redShikiTeam">
+                  <div className="item-redShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-redShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-redShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-redShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                  <div className="item-redShiki">
+                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div className="right-cloud"></div>
+              <div className="right-cloudRed"></div>
+            </div>
           </div>
         </div>
       )}

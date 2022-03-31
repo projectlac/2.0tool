@@ -13,7 +13,7 @@ enum CONSTANT {
 }
 export default function Home() {
   const [mode, setMode] = useState<string>('BAN');
-  const [turn, setTurn] = useState<number>(0);
+  const [turn, setTurn] = useState<number>(16);
 
   const [banList, setBanlist] = useState<Ban>({
     banBlue1: -1,

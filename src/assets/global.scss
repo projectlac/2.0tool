@@ -502,15 +502,183 @@
     transform: translateY(-50%);
     left: 0;
     right: 0;
+    height: 125px;
+    background: url('./anim1.png');
     margin: 0 auto;
     z-index: 10;
     text-align: center;
     transform: scale(2);
     opacity: 0;
     transition: all 0.5s linear 1.3s;
+
+    .mid-image {
+      position: relative;
+      height: 100%;
+      .left-cloud {
+        z-index: 3;
+        background-image: url(./cloud.png);
+        width: 487px;
+        height: 307px;
+        bottom: 0;
+        position: absolute;
+        transform: rotateY(180deg);
+        transition: all 0.5s linear 2.3s;
+        opacity: 0;
+        left: calc(50% - 487px);
+        &Red {
+          background-image: url(./redCloud.png);
+          width: 297px;
+          height: 369px;
+          bottom: 0;
+          left: 0;
+          transform: rotateY(180deg) translateX(297px);
+          position: absolute;
+          transition: all 0.5s linear 2.3s;
+        }
+      }
+      .right-cloud {
+        z-index: 3;
+        background-image: url(./cloud.png);
+        width: 487px;
+        height: 307px;
+        bottom: 0;
+        position: absolute;
+
+        transition: all 0.5s linear 2.3s;
+        opacity: 0;
+        right: calc(50% - 487px);
+        &Red {
+          background-image: url(./redCloud.png);
+          width: 297px;
+          height: 369px;
+          bottom: 0;
+          right: 0;
+          transform: translateX(297px);
+          position: absolute;
+          transition: all 0.5s linear 2.3s;
+        }
+      }
+      .img-title {
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 45px;
+        transition: all 0.5s linear 1.8s;
+        transform: translateY(-50%) scale(2);
+        opacity: 0;
+        z-index: 9;
+      }
+      .blueTeam {
+        position: absolute;
+        display: flex;
+        height: 331px;
+        width: 50%;
+        bottom: 0;
+        justify-content: flex-end;
+        opacity: 0;
+        // z-index: 2;
+        transition: all 0.3s ease-in-out 2.8s;
+        .blueOnmyTeam {
+          width: 341px;
+          height: 331px;
+          z-index: 2;
+        }
+        .blueShikiTeam {
+          width: 100%;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          height: 100%;
+          align-items: flex-end;
+          z-index: 4;
+          .item-blueShiki {
+            margin: 0 15px;
+            height: 90px;
+            border: 3px solid #000;
+          }
+        }
+      }
+      .redTeam {
+        position: absolute;
+        display: flex;
+        height: 331px;
+        width: 50%;
+        bottom: 0;
+        // z-index: 2;
+        right: 0;
+        opacity: 0;
+        justify-content: flex-end;
+        transform: rotateY(180deg);
+        transition: all 0.3s ease-in-out 2.8s;
+
+        .redOnmyTeam {
+          width: 341px;
+          height: 331px;
+          z-index: 2;
+        }
+        .redShikiTeam {
+          width: 100%;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          height: 100%;
+          align-items: flex-end;
+          z-index: 4;
+          .item-redShiki {
+            margin: 0 15px;
+            height: 90px;
+            border: 3px solid #000;
+          }
+        }
+      }
+      .moon {
+        width: 712px;
+        height: 669px;
+        top: 45px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 0;
+        transform: translateY(-50%) scale(0.2);
+        transition: all 0.5s linear 2.3s;
+        position: relative;
+
+        opacity: 0;
+        img:last-child {
+          transform: rotateY(180deg);
+        }
+      }
+    }
     &.ani {
       transform: translateY(-50%) scale(1);
       opacity: 1;
+      .left-cloud {
+        opacity: 1;
+        &Red {
+          transform: rotateY(180deg) translateX(0);
+        }
+      }
+      .right-cloud {
+        opacity: 1;
+        &Red {
+          transform: translateX(0);
+        }
+      }
+      .img-title {
+        transform: translateY(-50%) scale(1.1);
+        opacity: 1;
+      }
+      .blueTeam {
+        opacity: 1;
+      }
+      .redTeam {
+        opacity: 1;
+      }
+      .moon {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+      }
     }
   }
 }
