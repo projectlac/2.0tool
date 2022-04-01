@@ -86,7 +86,7 @@ export default function Home() {
   return (
     <div className="Main">
       <ChangeTurn turn={turn} />
-      <CloseDoor turn={turn} />
+      <CloseDoor turn={turn} pickBlue={pickBlue} pickRed={pickRed} />
       <div className="container">
         <div className="BanArea">
           <BanComponent banList={banList} />

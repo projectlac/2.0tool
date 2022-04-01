@@ -7,7 +7,7 @@ interface PropsPick {
 
 function BluePicComponent({ pickBlue }: PropsPick) {
   const convertData = (id: number) => {
-    if (id !== -1) return SSR.filter((d) => d.id === id)[0].img;
+    if (id !== -1) return SSR.filter((d) => d.id === id)[0].image_choose;
     else {
       return undefined;
     }
@@ -18,7 +18,7 @@ function BluePicComponent({ pickBlue }: PropsPick) {
       <div className="BlueOption">
         <div className={`BlueOption-item`}>
           <img
-            src="/images/357.png"
+            src={`/images/${convertData(pickBlue.pickSlot1)}`}
             alt=""
             className={`${
               convertData(pickBlue.pickSlot1) !== undefined ? 'ani' : ''
@@ -27,7 +27,7 @@ function BluePicComponent({ pickBlue }: PropsPick) {
         </div>
         <div className={`BlueOption-item `}>
           <img
-            src="/images/357.png"
+            src={`/images/${convertData(pickBlue.pickSlot2)}`}
             alt=""
             className={`${
               convertData(pickBlue.pickSlot2) !== undefined ? 'ani' : ''
@@ -36,7 +36,7 @@ function BluePicComponent({ pickBlue }: PropsPick) {
         </div>
         <div className={`BlueOption-item `}>
           <img
-            src="/images/357.png"
+            src={`/images/${convertData(pickBlue.pickSlot3)}`}
             alt=""
             className={`${
               convertData(pickBlue.pickSlot3) !== undefined ? 'ani' : ''
@@ -45,7 +45,7 @@ function BluePicComponent({ pickBlue }: PropsPick) {
         </div>
         <div className={`BlueOption-item `}>
           <img
-            src="/images/357.png"
+            src={`/images/${convertData(pickBlue.pickSlot4)}`}
             alt=""
             className={`${
               convertData(pickBlue.pickSlot4) !== undefined ? 'ani' : ''
@@ -54,7 +54,7 @@ function BluePicComponent({ pickBlue }: PropsPick) {
         </div>
         <div className={`BlueOption-item `}>
           <img
-            src="/images/357.png"
+            src={`/images/${convertData(pickBlue.pickSlot5)}`}
             alt=""
             className={`${
               convertData(pickBlue.pickSlot5) !== undefined ? 'ani' : ''

@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { Pick } from 'src/models/item';
+import { SSR } from '../../content/data';
 interface TurnProps {
   turn: number;
+  pickBlue: Pick;
+  pickRed: Pick;
 }
-function CloseDoor({ turn }: TurnProps) {
+function CloseDoor({ turn, pickBlue, pickRed }: TurnProps) {
   const [ani, setAni] = useState<boolean>(false);
-
+  const convertData = (id: number) => {
+    if (id !== -1) return SSR.filter((d) => d.id === id)[0].img;
+    else {
+      return undefined;
+    }
+  };
   useEffect(() => {
     if (turn >= 16)
       setTimeout(() => {
@@ -45,19 +54,34 @@ function CloseDoor({ turn }: TurnProps) {
                 </div>
                 <div className="blueShikiTeam">
                   <div className="item-blueShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickBlue.pickSlot1)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-blueShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickBlue.pickSlot2)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-blueShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickBlue.pickSlot3)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-blueShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickBlue.pickSlot4)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-blueShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickBlue.pickSlot5)}`}
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
@@ -71,19 +95,34 @@ function CloseDoor({ turn }: TurnProps) {
                 </div>
                 <div className="redShikiTeam">
                   <div className="item-redShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickRed.pickSlot1)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-redShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickRed.pickSlot2)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-redShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickRed.pickSlot3)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-redShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickRed.pickSlot4)}`}
+                      alt=""
+                    />
                   </div>
                   <div className="item-redShiki">
-                    <img src="/images/xugitopr9x8wtzqvbvz6.jpg" alt="" />
+                    <img
+                      src={`/images/${convertData(pickRed.pickSlot5)}`}
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
