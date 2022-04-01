@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 interface TurnProps {
   turn: number;
 }
@@ -37,9 +37,9 @@ function CloseDoor({ turn }: TurnProps) {
           />
           <div className={`logo ${ani ? 'ani' : ''}`}>
             <div className="mid-image">
-              <div className="left-cloudRed"></div>
-              <div className="left-cloud"></div>
               <div className="blueTeam">
+                <div className="left-cloud"></div>
+                <div className="left-cloudRed"></div>
                 <div className="blueOnmyTeam">
                   <img src="/images/mainOnmy.png" alt="" />
                 </div>
@@ -62,11 +62,10 @@ function CloseDoor({ turn }: TurnProps) {
                 </div>
               </div>
               <img src="/images/title.png" alt="" className="img-title" />
-              <div className="moon">
-                <img src="/images/harf_mood.png" alt="" />
-                <img src="/images/harf_mood.png" alt="" />
-              </div>
+
               <div className="redTeam">
+                <div className="right-cloud"></div>
+                <div className="right-cloudRed"></div>
                 <div className="redOnmyTeam">
                   <img src="/images/mainOnmy.png" alt="" />
                 </div>
@@ -88,8 +87,10 @@ function CloseDoor({ turn }: TurnProps) {
                   </div>
                 </div>
               </div>
-              <div className="right-cloud"></div>
-              <div className="right-cloudRed"></div>
+              <div className="moon">
+                <img src="/images/harf_mood.png" alt="" />
+                <img src="/images/harf_mood.png" alt="" />
+              </div>
             </div>
           </div>
         </div>

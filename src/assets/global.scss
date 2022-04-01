@@ -524,7 +524,7 @@
         transform: rotateY(180deg);
         transition: all 0.5s linear 2.3s;
         opacity: 0;
-        left: calc(50% - 487px);
+        right: 0;
         &Red {
           background-image: url(./redCloud.png);
           width: 297px;
@@ -546,14 +546,15 @@
 
         transition: all 0.5s linear 2.3s;
         opacity: 0;
-        right: calc(50% - 487px);
+        right: 0;
+        transform: rotateY(180deg);
         &Red {
           background-image: url(./redCloud.png);
           width: 297px;
           height: 369px;
           bottom: 0;
-          right: 0;
-          transform: translateX(297px);
+          left: 0;
+          transform: translateX(297px) rotateY(180deg);
           position: absolute;
           transition: all 0.5s linear 2.3s;
         }
@@ -576,8 +577,8 @@
         width: 50%;
         bottom: 0;
         justify-content: flex-end;
-        opacity: 0;
-        // z-index: 2;
+        opacity: 0;   
+        z-index: 2;
         transition: all 0.3s ease-in-out 2.8s;
         .blueOnmyTeam {
           width: 341px;
@@ -587,6 +588,7 @@
         .blueShikiTeam {
           width: 100%;
           position: absolute;
+          margin-top: 30px;
           display: flex;
           justify-content: center;
           height: 100%;
@@ -595,7 +597,7 @@
           .item-blueShiki {
             margin: 0 15px;
             height: 90px;
-            border: 3px solid #000;
+            border: 3px solid #3b5941;
           }
         }
       }
@@ -603,9 +605,9 @@
         position: absolute;
         display: flex;
         height: 331px;
-        width: 50%;
+        width: 50%;   
         bottom: 0;
-        // z-index: 2;
+        z-index: 2;
         right: 0;
         opacity: 0;
         justify-content: flex-end;
@@ -623,12 +625,13 @@
           display: flex;
           justify-content: center;
           height: 100%;
+          margin-top: 30px;
           align-items: flex-end;
           z-index: 4;
           .item-redShiki {
             margin: 0 15px;
             height: 90px;
-            border: 3px solid #000;
+            border: 3px solid #523014;
           }
         }
       }
@@ -662,7 +665,7 @@
       .right-cloud {
         opacity: 1;
         &Red {
-          transform: translateX(0);
+          transform: translateX(0) rotateY(180deg);
         }
       }
       .img-title {
