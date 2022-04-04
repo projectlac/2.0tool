@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { OnmyContext } from 'src/App';
 import { Pick } from 'src/models/item';
 import { SSR } from '../../content/data';
+import { Main } from '../../content/onmy';
+
 interface TurnProps {
   turn: number;
   pickBlue: Pick;
   pickRed: Pick;
 }
 function CloseDoor({ turn, pickBlue, pickRed }: TurnProps) {
+  const { onmyChoose } = useContext(OnmyContext);
   const [ani, setAni] = useState<boolean>(false);
   const convertData = (id: number) => {
     if (id !== -1) return SSR.filter((d) => d.id === id)[0].img;
+    else {
+      return undefined;
+    }
+  };
+  const convertOnmy = (id: number) => {
+    if (id !== -1) return Main.filter((d) => d.id === id)[0].image_show;
     else {
       return undefined;
     }
@@ -50,7 +60,11 @@ function CloseDoor({ turn, pickBlue, pickRed }: TurnProps) {
                 <div className="left-cloud"></div>
                 <div className="left-cloudRed"></div>
                 <div className="blueOnmyTeam">
-                  <img src="/images/mainOnmy.png" alt="" />
+                  <img
+                    src={`/images/${convertOnmy(onmyChoose.blue)}`}
+                    alt=""
+                    width="100%"
+                  />
                 </div>
                 <div className="blueShikiTeam">
                   <div className="item-blueShiki">
@@ -91,7 +105,11 @@ function CloseDoor({ turn, pickBlue, pickRed }: TurnProps) {
                 <div className="right-cloud"></div>
                 <div className="right-cloudRed"></div>
                 <div className="redOnmyTeam">
-                  <img src="/images/mainOnmy.png" alt="" />
+                  <img
+                    src={`/images/${convertOnmy(onmyChoose.red)}`}
+                    alt=""
+                    width="100%"
+                  />
                 </div>
                 <div className="redShikiTeam">
                   <div className="item-redShiki">

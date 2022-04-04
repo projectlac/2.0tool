@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Ban, ChooseOnmy, Item } from 'src/models/item';
 import { SSR } from '../../content/data';
+import { Main } from '../../content/onmy';
+
 import { ReactComponent as Search } from '../../assets/search.svg';
+import { OnmyContext } from 'src/App';
 interface propsFromHome {
   actionBan: (id: number) => void;
   actionPick: (id: number) => void;
   turnAddOne: () => void;
   mode: string;
   turn: number;
-
   banList: Ban;
 }
 function MainBox({
@@ -20,6 +22,7 @@ function MainBox({
   turnAddOne
 }: propsFromHome) {
   const [search, setSearch] = useState<string>('');
+  const { chooseBlueOnmy, chooseRedOnmy } = useContext(OnmyContext);
   const [itemHasPending, setItemHasPending] = useState<number>(-1);
   const convertData = (): Item[] => {
     return SSR.filter((post: Item) => {
@@ -34,36 +37,38 @@ function MainBox({
   const actionOnmy = (id: number) => {
     if (turn % 2 === 0) {
       setChooseOnmy({ ...chooseOnmy, blue: id });
+      chooseBlueOnmy(id);
     } else {
       setChooseOnmy({ ...chooseOnmy, red: id });
+      chooseRedOnmy(id);
     }
     turnAddOne();
   };
-  const onmyoji = [
-    {
-      id: 1,
-      name: 'Seimei',
-      image: 'Seimei.png'
-    },
-    {
-      id: 2,
-      name: 'Seimei',
-      image: 'Seimei.png'
-    },
-    {
-      id: 3,
-      name: 'Seimei',
-      image: 'Seimei.png'
-    },
-    {
-      id: 4,
-      name: 'Seimei',
-      image: 'Seimei.png'
-    }
-  ];
+  // const onmyoji = [
+  //   {
+  //     id: 1,
+  //     name: 'Seimei',
+  //     image: 'Seimei.png'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Seimei',
+  //     image: 'Seimei.png'
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Seimei',
+  //     image: 'Seimei.png'
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'Seimei',
+  //     image: 'Seimei.png'
+  //   }
+  // ];
 
   const findImageById = (id: number) => {
-    return onmyoji.filter((d) => d.id === id)[0].image;
+    return Main.filter((d) => d.id === id)[0].image;
   };
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -120,7 +125,7 @@ function MainBox({
                     <img src={`/images/${shiki.img}`} alt={shiki.name} />
                   </div>
                 ))
-              : onmyoji.map((d, index) => (
+              : Main.map((d, index) => (
                   <div
                     className={`col-onmy ${
                       itemHasPending === d.id ? 'choose' : ''
