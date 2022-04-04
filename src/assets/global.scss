@@ -265,7 +265,7 @@
 
 //Respon
 .MainPicker {
-  width: calc(100% - 500px);
+  
   // background-color: #fffdf1;
   background-image: url('./midBox.png');
   background-repeat: no-repeat;
@@ -273,17 +273,31 @@
   background-size: contain;
   // border: 3px solid #d7bf79;
   padding: 15px;
-  margin: 100px auto 0;
+  
   height: 86%;
 
   position: relative;
-
+ 
+  @include desktop(){
+    width: calc(100% - 15vw);
+    margin: 92px auto 0 auto;
+  }
+  @include for-big-desktop-up(){
+    width: calc(100% - 500px);
+    margin: 100px auto 0;
+  }
   &-action {
     margin-bottom: 50px;
     width: 100%;
     display: flex;
     justify-content: center;
     position: relative;
+    @include desktop(){
+      margin-bottom: 0;
+    }
+    @include for-big-desktop-up(){
+      margin-bottom: 50px;
+    }
     input {
       border: 2px solid #4f796b;
       height: 29px;
@@ -303,6 +317,12 @@
       background: #647290;
       color: #fff;
       transform: rotate(45deg);
+      @include desktop(){
+        right: 3px;
+      }
+      @include for-big-desktop-up(){
+        right: 18px;
+      }
       > svg {
         transform: rotate(-45deg);
       }
@@ -317,19 +337,32 @@
 
     margin: 0 auto;
     position: absolute;
-    bottom: 110px;
+    
     right: 0;
     left: 0;
     z-index: 9;
-
+    @include desktop(){
+      bottom: 45px;
+    }
+    @include for-big-desktop-up(){
+      bottom: 110px;
+    }
     &-item {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
       padding-right: 25px;
       overflow: hidden;
-      height: 400px;
+     
       overflow-y: auto;
+      @include desktop(){
+        padding-right:6px;
+        height: 375px;
+      }
+      @include for-big-desktop-up(){
+        padding-right: 25px;
+        height: 400px;
+      }
       .col-md-1-custom {
         width: calc(100% / 5 - 11px);
         height: 70px;
